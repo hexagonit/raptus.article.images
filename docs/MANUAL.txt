@@ -1,0 +1,30 @@
+Developer Manual
+================
+
+Note: You find a developer manual for raptus.article at 
+`raptus.article.core <http://pypi.python.org/pypi/raptus.article.core>`_.
+Please have look there if you need more information.
+
+Code overview
+=============
+
+Interfaces
+----------
+file: interfaces.py
+
+- IImages (Provider for images contained in an article)
+    - getImages - Function (Returns a list of images based on the criteria passed as kwargs (catalog brains))
+
+- IImage (Handler for image thumbing and captioning)
+    - getImageURL - Function (Returns the url to the image in the specific size. The sizes are taken from the 
+      raptus_article properties sheet and are formed by the following name schema: images_<size>_(height|width)
+    - getImage - Function (Returns the html tag of the image in the specific size. The sizes are taken from the 
+      raptus_article properties sheet and are formed by the following name schema: images_<size>_(height|width)
+    - getSize - Function (Returns the width and height registered for the specific size)
+    - getCaption - Function (Returns the caption for the image)
+
+Schema extender
+---------------
+file: extender.py
+
+- ImageExtender - Adds the component selection field to the image content type - for IATImage
