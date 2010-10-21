@@ -3,24 +3,17 @@ Introduction
 
 raptus.article.images provides support for multiple images per article.
 
-Following features for raptus.article are provided by this package:
+The following features for raptus.article are provided by this package:
 
+Content
+-------
     * Image - add your images in a article.
 
-Dependencies:
-
+Dependencies
+------------
     * archetypes.schemaextender
     * raptus.article.core
     * plone.app.imaging
-
-Plone 3 compatibility
----------------------
-
-This packages requires plone.app.imaging which requires two pins in buildout
-when using Plone 3, which there are:
-
-Products.Archetypes = 1.5.16
-plone.scale = 1.2
 
 Installation
 ============
@@ -56,6 +49,15 @@ include the zcml of raptus.article.images either by adding it
 to the zcml list in your buildout or by including it in another package's
 configure.zcml.
 
+Plone 3 compatibility
+---------------------
+
+This packages requires plone.app.imaging which requires two pins in buildout
+when using Plone 3, which there are::
+
+    Products.Archetypes = 1.5.16
+    plone.scale = 1.2
+
 Usage
 =====
 
@@ -68,16 +70,14 @@ Components
 ----------
 The following packages provide components to display contained images:
 
-* `raptus.article.gallery <http://pypi.python.org/pypi/raptus.article.gallery>`_
-* `raptus.article.fader <http://pypi.python.org/pypi/raptus.article.fader>`_
-* `raptus.article.lightbox <http://pypi.python.org/pypi/raptus.article.lightbox>`_
-* `raptus.article.lightboxgallery <http://pypi.python.org/pypi/raptus.article.lightboxgallery>`_
-* `raptus.article.randomimage <http://pypi.python.org/pypi/raptus.article.randomimage>`_
+    * `raptus.article.gallery <http://pypi.python.org/pypi/raptus.article.gallery>`_
+    * `raptus.article.fader <http://pypi.python.org/pypi/raptus.article.fader>`_
+    * `raptus.article.lightbox <http://pypi.python.org/pypi/raptus.article.lightbox>`_
+    * `raptus.article.lightboxgallery <http://pypi.python.org/pypi/raptus.article.lightboxgallery>`_
+    * `raptus.article.randomimage <http://pypi.python.org/pypi/raptus.article.randomimage>`_
 
 Copyright and credits
 =====================
 
-raptus.article is copyrighted by raptus_, and licensed under the GPL. 
+raptus.article is copyrighted by `Raptus AG <http://raptus.com>`_ and licensed under the GPL. 
 See LICENSE.txt for details.
-
-.. _raptus: http://raptus.com/ 
