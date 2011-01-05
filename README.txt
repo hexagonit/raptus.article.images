@@ -56,6 +56,7 @@ This packages requires plone.app.imaging which requires two pins in buildout
 when using Plone 3, which there are::
 
     Products.Archetypes = 1.5.16
+    archetypes.schemaextender = 2.0.3
     plone.scale = 1.2
 
 Usage
