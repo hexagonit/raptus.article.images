@@ -23,8 +23,9 @@ class Images(object):
         """ Returns a list of images based on the criteria passed as kwargs (catalog brains)
         """
         catalog = getToolByName(self.context, 'portal_catalog')
-        return catalog(portal_type='Image', path={'query': '/'.join(self.context.getPhysicalPath()),
-                                                  'depth': 1}, sort_on='getObjPositionInParent', **kwargs)
+        path = {'query': '/'.join(self.context.getPhysicalPath()),
+                'depth': 1}
+        return catalog(portal_type='Image', sort_on='getObjPositionInParent', path=path, **kwargs)
 
 class Image(object):
     """ Handler for image thumbing and captioning
