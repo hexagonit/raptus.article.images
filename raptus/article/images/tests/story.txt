@@ -1,0 +1,59 @@
+User story
+==========
+
+A scripted walk-through of basic features of Raptus Article Images.
+
+Preparing
+---------
+
+We'll start by importing what we need and adding an Article so we can later
+add images to it. 
+    
+    >>> from StringIO import StringIO
+    >>> foo = portal.invokeFactory('Article', 'article')
+    >>> import transaction; transaction.commit()
+
+Now, let's login so we can later use the `Add new ...` drop-down menu and start
+adding an Image.
+
+    Go to login screen.
+    >>> browser.open(portal.absolute_url() + '/login')
+
+    Fill in your credentials.
+    >>> browser.getControl(name='__ac_name').value = TEST_USER_NAME
+    >>> browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
+
+    Click Login button.
+    >>> browser.getControl(name='submit').click()
+
+    Are we logged in?
+    >>> "You are now logged in" in browser.contents
+    True
+
+
+Adding an Image
+---------------
+
+Great! Our Article has been successfully created. Now let's see if we can add
+an Image.
+
+    Verify that we have the link to add an Image.
+    >>> browser.open(portal.absolute_url() + '/article')
+    >>> browser.getLink(id='image').url.endswith("createObject?type_name=Image")
+    True
+
+    Click on the add link to open the form for adding an Image.
+    >>> browser.getLink(id='image').click()
+
+    Fill in fields.
+    >>> browser.getControl(name='title').value = "Photo of attacking ninjas"
+    >>> browser.getControl(name='image_file').add_file(StringIO(PNG_IMAGE), 'image/png', 'ninjas.png')
+
+    Click submit to create the Image.
+    >>> browser.getControl(name='form.button.save').click()
+
+    Was our Image really created?
+    >>> 'Changes saved' in browser.contents
+    True
+    >>> hasattr(portal.article, 'photo-of-attacking-ninjas')
+    True
