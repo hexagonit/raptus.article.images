@@ -39,7 +39,6 @@ def setUp(self):
     browser.handleErrors = True
     portal.error_log._ignored_exceptions = ()
     setRoles(portal, TEST_USER_ID, ['Manager'])
-    login(portal, TEST_USER_NAME)
 
     transaction.commit()
 
