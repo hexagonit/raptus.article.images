@@ -1,3 +1,4 @@
+from Acquisition import aq_parent
 from zope import interface, component
 
 from Products.CMFCore.utils import getToolByName
@@ -7,7 +8,7 @@ try: # Plone 4 and higher
 except: # BBB Plone 3
     from Products.ATContentTypes.interface.image import IATImage
 
-from raptus.article.core.interfaces import IArticle
+from raptus.article.core.interfaces import IArticle, IComponentsConfiguration
 from raptus.article.images.interfaces import IImages, IImage
 
 class Images(object):
@@ -77,8 +78,11 @@ class Image(object):
         """
         Returns the width and height registered for the specific size
         """
-        props = getToolByName(self.context, 'portal_properties').raptus_article
-        return props.getProperty('images_%s_width' % size, 0), props.getProperty('images_%s_height' % size, 0)
+        
+        article = aq_parent(self.context)
+        width = IComponentsConfiguration(article).get('images_%s_width' % size, 0)
+        height = IComponentsConfiguration(article).get('images_%s_height' % size, 0)
+        return width, height
     
     def getCaption(self):
         """
