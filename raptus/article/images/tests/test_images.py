@@ -184,19 +184,19 @@ class TestGetSize(unittest.TestCase):
     raptus.article.images.images.Image.getSize().
     """
 
-    @mock.patch('raptus.article.images.images.getToolByName')
-    def test_get_size(self, getToolByName):
+    @mock.patch('raptus.article.images.images.IComponentsConfiguration')
+    def test_get_size(self, configuration):
         """Test return value of getSize()."""
         from raptus.article.images.images import Image
-        getToolByName.return_value.raptus_article.getProperty.return_value = 9
+        configuration.return_value.get.return_value = 86
 
         # test result
         image = mock.Mock(spec=''.split())
         w, h = Image(image).getSize('foo')
-        self.assertEquals((9, 9), (w, h))
+        self.assertEquals((86, 86), (w, h))
 
         # test call parameters
-        call_args_list = getToolByName.return_value.raptus_article.getProperty.call_args_list
+        call_args_list = configuration.return_value.get.call_args_list
         self.assertEquals(call_args_list[0], (('images_foo_width', 0), {}))
         self.assertEquals(call_args_list[1], (('images_foo_height', 0), {}))
 
