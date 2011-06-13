@@ -31,6 +31,7 @@ class RaptusArticleImagesLayer(PloneSandboxLayer):
 
     def tearDownZope(self, app):
         """Tear down Zope."""
+        z2.uninstallProduct(app, 'raptus.article.core')
         z2.uninstallProduct(app, 'raptus.article.images')
 
 
