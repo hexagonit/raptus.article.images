@@ -8,14 +8,14 @@ import unittest2 as unittest
 
 
 class TestInstall(RAImagesIntegrationTestCase):
-    """Test installation of raptus.article.core into Plone."""
+    """Test installation of raptus.article.images into Plone."""
 
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
 
     def test_product_installed(self):
-        """Test if raptus.article.core is installed with
+        """Test if raptus.article.gallery is installed with
         portal_quickinstaller.
         """
         qi = getToolByName(self.portal, 'portal_quickinstaller')
