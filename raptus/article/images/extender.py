@@ -35,8 +35,10 @@ class ImageExtender(object):
             storage=atapi.AnnotationStorage(),
             schemata='settings',
             widget=ComponentSelectionWidget(
-                description=_(u'description_component_selection_image', default=u'Select the components in which this image should be displayed.'),
-                label=_(u'label_component_selection', default=u'Component selection'),
+                description=_(u'description_component_selection_image',
+                              default=u'Select the components in which this image should be displayed.'),
+                label=_(u'label_component_selection',
+                        default=u'Component selection'),
             )
         ),
     ]
