@@ -3,7 +3,7 @@ import os
 
 version = '2.0b4'
 
-install_requires=[
+install_requires = [
     'archetypes.schemaextender',
     'manuel',
     'mock',
