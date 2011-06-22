@@ -3,6 +3,17 @@ import os
 
 version = '2.0b4'
 
+install_requires=[
+    'archetypes.schemaextender',
+    'manuel',
+    'mock',
+    'plone.app.imaging',
+    'plone.app.testing',
+    'raptus.article.core',
+    'setuptools',
+    'unittest2',
+],
+
 setup(name='raptus.article.images',
       version=version,
       description="Provides support for adding images to articles.",
@@ -23,14 +34,10 @@ setup(name='raptus.article.images',
       namespace_packages=['raptus', 'raptus.article'],
       include_package_data=True,
       zip_safe=False,
-      install_requires=[
-          'setuptools',
-          'archetypes.schemaextender',
-          'raptus.article.core',
-          'plone.app.imaging',
-          # -*- Extra requirements: -*-
-      ],
+      install_requires=install_requires,
       entry_points="""
       # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )
