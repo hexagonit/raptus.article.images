@@ -17,10 +17,12 @@ file: interfaces.py
     - getImages - Function (Returns a list of images based on the criteria passed as kwargs (catalog brains))
 
 - IImage (Handler for image thumbing and captioning)
-    - getImageURL - Function (Returns the url to the image in the specific size. The sizes are taken from the 
-      raptus_article properties sheet and are formed by the following name schema: images_<size>_(height|width)
-    - getImage - Function (Returns the html tag of the image in the specific size. The sizes are taken from the 
-      raptus_article properties sheet and are formed by the following name schema: images_<size>_(height|width)
+    - getImageURL - Function (Returns the url to the image in the specific size. Sizes are looked up via 
+      IComponentsConfiguration provider and are (by default) taken from the raptus_article properties sheet;
+      they are formed according to the following name schema: images_<size>_(height|width)
+    - getImage - Function (Returns the html tag of the image in the specific size. Sizes are looked up via
+      IComponentsConfiguration provider and are (by default) taken from the raptus_article properties sheet;
+      they are formed according to the following name schema: images_<size>_(height|width)
     - getSize - Function (Returns the width and height registered for the specific size)
     - getCaption - Function (Returns the caption for the image)
 
