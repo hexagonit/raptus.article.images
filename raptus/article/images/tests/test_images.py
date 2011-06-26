@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Tests for utility methods for retrieving Article's images. """
+"""Tests for utility methods for retrieving Article's images."""
 
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
